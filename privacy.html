@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gizlilik Politikası | TekTık</title>
+<meta name="description" content="TekTık gizlilik politikası ve kullanıcı gizliliği hakkında bilgiler.">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Tek<span>Tık</span>
+        </a>
+
+        <div class="nav-right">
+            <button class="nav-btn" id="darkBtn">🌙</button>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="section-head">
+        <h2>🔒 Gizlilik Politikası</h2>
+    </div>
+
+    <div class="feature">
+
+        <h3>1. Genel Bilgiler</h3>
+
+        <p>
+            TekTık olarak ziyaretçilerimizin gizliliğine
+            önem veriyoruz. Bu sayfa, web sitemizi
+            kullandığınızda bilgilerinizin nasıl
+            ele alınabileceğini açıklamak amacıyla
+            hazırlanmıştır.
+        </p>
+
+        <br>
+
+        <h3>2. Toplanan Bilgiler</h3>
+
+        <p>
+            TekTık üzerindeki birçok araç herhangi bir
+            üyelik gerektirmeden kullanılabilir.
+            Araçlara girdiğiniz bilgiler, kullanılan
+            aracın işlevine göre tarayıcınız üzerinde
+            işlenebilir.
+        </p>
+
+        <br>
+
+        <h3>3. Çerezler</h3>
+
+        <p>
+            Web sitemizde kullanıcı deneyimini
+            geliştirmek amacıyla çerezler veya benzeri
+            teknolojiler kullanılabilir.
+        </p>
+
+        <br>
+
+        <h3>4. Reklamlar</h3>
+
+        <p>
+            Gelecekte web sitemizde üçüncü taraf
+            reklam hizmetleri kullanılabilir.
+            Bu hizmetler, kullanıcılara daha uygun
+            reklamlar göstermek amacıyla çeşitli
+            teknolojiler kullanabilir.
+        </p>
+
+        <br>
+
+        <h3>5. Üçüncü Taraf Hizmetler</h3>
+
+        <p>
+            Sitemizde kullanılan bazı hizmetler,
+            kendi gizlilik politikalarına sahip
+            üçüncü taraf sağlayıcılar tarafından
+            sunulabilir.
+        </p>
+
+        <br>
+
+        <h3>6. Güvenlik</h3>
+
+        <p>
+            Kullanıcıların gizliliğini ve güvenliğini
+            korumak için makul teknik önlemler
+            alınmaktadır. Ancak internet üzerinden
+            yapılan hiçbir veri aktarımının tamamen
+            risksiz olduğu garanti edilemez.
+        </p>
+
+        <br>
+
+        <h3>7. Politika Değişiklikleri</h3>
+
+        <p>
+            Bu gizlilik politikası gerektiğinde
+            güncellenebilir. Yapılan değişiklikler
+            bu sayfa üzerinden yayınlanır.
+        </p>
+
+        <br>
+
+        <h3>8. İletişim</h3>
+
+        <p>
+            Gizlilik politikamız hakkında sorularınız
+            varsa İletişim sayfasından bizimle
+            iletişime geçebilirsiniz.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="about.html">Hakkımızda</a>
+        <a href="privacy.html">Gizlilik</a>
+        <a href="terms.html">Kullanım Şartları</a>
+        <a href="contact.html">İletişim</a>
+    </div>
+
+    © 2026 TekTık • Ücretsiz Online Araçlar
+
+</footer>
+
+
+<script>
+
+const darkBtn=document.getElementById("darkBtn");
+
+if(localStorage.getItem("tektik-dark")==="1"){
+    document.body.classList.add("dark");
+    darkBtn.textContent="☀️";
+}
+
+darkBtn.onclick=()=>{
+
+    document.body.classList.toggle("dark");
+
+    const active=document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "tektik-dark",
+        active ? "1" : "0"
+    );
+
+    darkBtn.textContent=active ? "☀️" : "🌙";
+
+};
+
+</script>
+
+</body>
+</html>
