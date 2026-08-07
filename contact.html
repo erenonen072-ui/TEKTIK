@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>İletişim | TekTık</title>
+<meta name="description" content="TekTık ile iletişime geçin. Görüş, öneri ve hata bildirimlerinizi bize iletin.">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Tek<span>Tık</span>
+        </a>
+
+        <div class="nav-right">
+            <button class="nav-btn" id="darkBtn">🌙</button>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="section-head">
+        <h2>📩 İletişim</h2>
+    </div>
+
+    <div class="feature">
+
+        <div class="feature-icon">💬</div>
+
+        <h3>TekTık'a Ulaşın</h3>
+
+        <p>
+            Görüş, öneri, hata bildirimi veya siteyle ilgili
+            herhangi bir konuda bizimle iletişime geçebilirsiniz.
+        </p>
+
+        <br>
+
+        <h3>📧 E-posta</h3>
+
+        <p>
+            Bize e-posta göndermek için aşağıdaki butonu
+            kullanabilirsiniz.
+        </p>
+
+        <button
+            class="main-btn"
+            style="margin-top:18px;"
+            onclick="sendMail()">
+            📩 E-posta Gönder
+        </button>
+
+        <br><br>
+
+        <h3>💡 Öneriniz mi var?</h3>
+
+        <p>
+            TekTık'a eklenmesini istediğiniz yeni araçları
+            veya geliştirme fikirlerinizi de bizimle
+            paylaşabilirsiniz.
+        </p>
+
+        <br>
+
+        <h3>🐞 Hata mı buldunuz?</h3>
+
+        <p>
+            Bir aracın düzgün çalışmadığını düşünüyorsanız,
+            bize bildirerek TekTık'ın geliştirilmesine
+            katkıda bulunabilirsiniz.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="about.html">Hakkımızda</a>
+        <a href="privacy.html">Gizlilik</a>
+        <a href="terms.html">Kullanım Şartları</a>
+        <a href="contact.html">İletişim</a>
+    </div>
+
+    © 2026 TekTık • Ücretsiz Online Araçlar
+
+</footer>
+
+
+<script>
+
+const darkBtn = document.getElementById("darkBtn");
+
+if(localStorage.getItem("tektik-dark") === "1"){
+    document.body.classList.add("dark");
+    darkBtn.textContent = "☀️";
+}
+
+darkBtn.onclick = () => {
+
+    document.body.classList.toggle("dark");
+
+    const active =
+        document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "tektik-dark",
+        active ? "1" : "0"
+    );
+
+    darkBtn.textContent =
+        active ? "☀️" : "🌙";
+
+};
+
+
+function sendMail(){
+
+    window.location.href =
+    "mailto:iletisim@tektik.com?subject=TekTık%20İletişim";
+
+}
+
+</script>
+
+</body>
+</html>
