@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kullanım Şartları | TekTık</title>
+<meta name="description" content="TekTık kullanım şartları ve hizmet koşulları.">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Tek<span>Tık</span>
+        </a>
+
+        <div class="nav-right">
+            <button class="nav-btn" id="darkBtn">🌙</button>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="section-head">
+        <h2>📜 Kullanım Şartları</h2>
+    </div>
+
+    <div class="feature">
+
+        <h3>1. Genel</h3>
+
+        <p>
+            TekTık web sitesini kullanarak aşağıdaki
+            kullanım şartlarını kabul etmiş olursunuz.
+            Sitemizde bulunan araçlar kullanıcıların
+            günlük ihtiyaçlarını kolaylaştırmak amacıyla
+            sunulmaktadır.
+        </p>
+
+        <br>
+
+        <h3>2. Araçların Kullanımı</h3>
+
+        <p>
+            TekTık üzerinde bulunan hesaplama ve diğer
+            araçlar genel bilgilendirme ve kolaylık
+            amacıyla hazırlanmıştır.
+        </p>
+
+        <br>
+
+        <p>
+            Araçlardan elde edilen sonuçlar profesyonel,
+            finansal, hukuki, tıbbi veya başka bir uzman
+            görüşünün yerine geçmez.
+        </p>
+
+        <br>
+
+        <h3>3. Doğru Kullanım</h3>
+
+        <p>
+            Kullanıcıların TekTık'ı yasalara ve genel
+            internet kullanım kurallarına uygun şekilde
+            kullanması gerekir.
+        </p>
+
+        <br>
+
+        <h3>4. İçerik ve Hizmet Değişiklikleri</h3>
+
+        <p>
+            TekTık, web sitesindeki araçları, içerikleri
+            ve özellikleri önceden bildirimde bulunmadan
+            değiştirme, geliştirme veya kaldırma hakkını
+            saklı tutar.
+        </p>
+
+        <br>
+
+        <h3>5. Sonuçların Sorumluluğu</h3>
+
+        <p>
+            TekTık üzerindeki hesaplama araçları mümkün
+            olduğunca doğru sonuç vermek amacıyla
+            hazırlanmıştır. Ancak teknik nedenlerle
+            oluşabilecek hatalardan dolayı kesinlik
+            garantisi verilmez.
+        </p>
+
+        <br>
+
+        <h3>6. Harici Bağlantılar</h3>
+
+        <p>
+            Sitemizde ileride üçüncü taraf web sitelerine
+            bağlantılar bulunabilir. Bu sitelerin içerik
+            ve politikalarından TekTık sorumlu değildir.
+        </p>
+
+        <br>
+
+        <h3>7. Fikri Mülkiyet</h3>
+
+        <p>
+            TekTık'a ait tasarım, logo, metinler ve
+            özgün içerikler izin alınmadan ticari amaçla
+            kopyalanamaz veya yeniden yayınlanamaz.
+        </p>
+
+        <br>
+
+        <h3>8. Şartların Güncellenmesi</h3>
+
+        <p>
+            Kullanım şartları gerektiğinde güncellenebilir.
+            Güncellenen şartlar bu sayfada yayınlandığı
+            tarihten itibaren geçerli olur.
+        </p>
+
+        <br>
+
+        <h3>9. İletişim</h3>
+
+        <p>
+            Kullanım şartları hakkında sorularınız varsa
+            İletişim sayfasından bizimle iletişime
+            geçebilirsiniz.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="about.html">Hakkımızda</a>
+        <a href="privacy.html">Gizlilik</a>
+        <a href="terms.html">Kullanım Şartları</a>
+        <a href="contact.html">İletişim</a>
+    </div>
+
+    © 2026 TekTık • Ücretsiz Online Araçlar
+
+</footer>
+
+
+<script>
+
+const darkBtn = document.getElementById("darkBtn");
+
+if(localStorage.getItem("tektik-dark") === "1"){
+    document.body.classList.add("dark");
+    darkBtn.textContent = "☀️";
+}
+
+darkBtn.onclick = () => {
+
+    document.body.classList.toggle("dark");
+
+    const active =
+        document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "tektik-dark",
+        active ? "1" : "0"
+    );
+
+    darkBtn.textContent =
+        active ? "☀️" : "🌙";
+
+};
+
+</script>
+
+</body>
+</html>
