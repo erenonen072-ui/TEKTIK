@@ -1,3 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N3DVXV4EHP"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-N3DVXV4EHP');
+</script>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TekTık | Ücretsiz Online Araçlar</title>
+
+<meta
+name="description"
+content="TekTık ile hesaplama, öğrenci, zaman, metin, güvenlik ve eğlence araçlarını ücretsiz kullan."
+>
+
+<meta
+name="keywords"
+content="hesaplama araçları, online araçlar, yüzde hesaplama, yaş hesaplama, not hesaplama, şifre oluşturucu"
+>
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
 *{
     margin:0;
     padding:0;
