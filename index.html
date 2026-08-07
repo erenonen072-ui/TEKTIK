@@ -1,0 +1,2512 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TekTık | Ücretsiz Online Araçlar</title>
+<meta name="description" content="TekTık ile hesaplama, öğrenci, zaman, metin, güvenlik ve eğlence araçlarını ücretsiz kullan.">
+<meta name="keywords" content="online araçlar, hesaplama, yüzde hesaplama, yaş hesaplama, not hesaplama, şifre oluşturucu">
+<meta name="robots" content="index, follow">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#f6f7fb;
+    --card:#fff;
+    --text:#111827;
+    --muted:#667085;
+    --border:#e7e9ee;
+    --primary:#ffd21c;
+    --primary-dark:#e4b900;
+    --dark:#101318;
+    --success:#16a34a;
+    --shadow:0 12px 35px rgba(17,24,39,.08);
+}
+
+body.dark{
+    --bg:#0b0e13;
+    --card:#151922;
+    --text:#f5f7fa;
+    --muted:#9ba3b2;
+    --border:#282e39;
+    --shadow:0 12px 35px rgba(0,0,0,.3);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.25s;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.dark header{
+    background:rgba(21,25,34,.92);
+}
+
+.nav{
+    max-width:1200px;
+    min-height:72px;
+    margin:auto;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:950;
+    color:var(--text);
+    text-decoration:none;
+}
+
+.logo span{
+    color:#d3aa00;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.nav-btn{
+    width:43px;
+    height:43px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:var(--card);
+    color:var(--text);
+}
+
+/* HERO */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px 50px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-flex;
+    padding:9px 15px;
+    border-radius:50px;
+    background:#fff2a8;
+    color:#806600;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.dark .badge{
+    background:#3c3310;
+    color:#ffe477;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:.98;
+    letter-spacing:-3px;
+    margin-bottom:20px;
+    font-weight:950;
+}
+
+.hero h1 span{
+    color:#d1a800;
+}
+
+.hero p{
+    max-width:680px;
+    margin:auto;
+    color:var(--muted);
+    font-size:18px;
+}
+
+.search-wrap{
+    max-width:720px;
+    margin:32px auto 0;
+    position:relative;
+}
+
+.search{
+    width:100%;
+    padding:19px 22px 19px 50px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--card);
+    color:var(--text);
+    outline:none;
+    box-shadow:var(--shadow);
+}
+
+.search-icon{
+    position:absolute;
+    left:18px;
+    top:17px;
+    font-size:21px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 70px;
+}
+
+.section-head{
+    margin:25px 0 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.section-head h2{
+    font-size:25px;
+}
+
+.section-head small{
+    color:var(--muted);
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+}
+
+.category{
+    padding:10px 16px;
+    border-radius:50px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    font-weight:700;
+}
+
+.category:hover,
+.category.active{
+    background:var(--primary);
+    color:#191600;
+    border-color:var(--primary);
+}
+
+/* TOOLS */
+
+.tools{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.tool{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:21px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.tool:hover{
+    transform:translateY(-5px);
+    border-color:var(--primary);
+}
+
+.tool.hidden{
+    display:none;
+}
+
+.tool-icon{
+    width:52px;
+    height:52px;
+    display:grid;
+    place-items:center;
+    border-radius:16px;
+    background:#fff4bb;
+    font-size:25px;
+    margin-bottom:17px;
+}
+
+.dark .tool-icon{
+    background:#3b3210;
+}
+
+.tool h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.tool p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.favorite{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:34px;
+    height:34px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--card);
+    color:var(--muted);
+}
+
+.favorite.active{
+    color:#d5a900;
+}
+
+/* FEATURE */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.feature{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:21px;
+    padding:24px;
+    box-shadow:var(--shadow);
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+}
+
+.feature button{
+    border:0;
+    background:var(--primary);
+    padding:11px 16px;
+    border-radius:12px;
+    font-weight:800;
+    margin-top:15px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:35px 20px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.footer-links a{
+    color:var(--muted);
+    text-decoration:none;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:500;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:500px;
+    max-height:90vh;
+    overflow:auto;
+    background:var(--card);
+    color:var(--text);
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.modal-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+}
+
+.modal-header h2{
+    font-size:23px;
+}
+
+.close{
+    width:38px;
+    height:38px;
+    border:0;
+    background:var(--bg);
+    color:var(--text);
+    border-radius:10px;
+    font-size:25px;
+}
+
+.field{
+    margin-bottom:15px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:7px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:var(--bg);
+    color:var(--text);
+    outline:none;
+}
+
+.main-btn{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:13px;
+    background:var(--primary);
+    color:#171400;
+    font-weight:900;
+}
+
+.result{
+    margin-top:15px;
+    padding:16px;
+    border-radius:13px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    text-align:center;
+    font-weight:800;
+}
+
+.button-row{
+    display:flex;
+    gap:9px;
+}
+
+.button-row button{
+    flex:1;
+    border:0;
+    background:var(--primary);
+    padding:12px;
+    border-radius:12px;
+    font-weight:800;
+}
+
+.timer{
+    text-align:center;
+    font-size:55px;
+    font-weight:950;
+    margin:25px 0;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    .tools{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:560px){
+
+    .nav{
+        min-height:65px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .hero{
+        padding:55px 20px 35px;
+    }
+
+    .hero h1{
+        font-size:45px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .tools{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a class="logo" href="#">
+Tek<span>Tık</span>
+</a>
+
+<div class="nav-right">
+
+<button class="nav-btn" id="randomBtn" title="Rastgele araç">
+🎲
+</button>
+
+<button class="nav-btn" id="darkBtn" title="Karanlık mod">
+🌙
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="badge">
+⚡ Ücretsiz • Hızlı • Kolay
+</div>
+
+<h1>
+Her şey <span>TekTık</span> uzağında.
+</h1>
+
+<p>
+Hesapla, dönüştür, planla, üret ve eğlen.
+Günlük hayatında ihtiyacın olan ücretsiz araçlar tek yerde.
+</p>
+
+<div class="search-wrap">
+
+<span class="search-icon">🔎</span>
+
+<input
+class="search"
+id="search"
+type="search"
+placeholder="Bir araç ara... Örn: yüzde hesaplama"
+>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="section-head">
+
+<h2>🔥 Popüler Araçlar</h2>
+
+<small id="count">
+24 araç
+</small>
+
+</div>
+
+
+<div class="categories">
+
+<button class="category active" data-cat="all">
+Tümü
+</button>
+
+<button class="category" data-cat="calc">
+🧮 Hesaplama
+</button>
+
+<button class="category" data-cat="student">
+🎓 Öğrenci
+</button>
+
+<button class="category" data-cat="time">
+⏱️ Zaman
+</button>
+
+<button class="category" data-cat="text">
+📝 Metin
+</button>
+
+<button class="category" data-cat="security">
+🔐 Güvenlik
+</button>
+
+<button class="category" data-cat="fun">
+🎲 Eğlence
+</button>
+
+</div>
+
+
+<div class="tools" id="tools">
+
+
+<div class="tool" data-cat="calc" data-search="yüzde yüzde hesaplama hesap">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">%</div>
+
+<h3>Yüzde Hesaplama</h3>
+
+<p>Bir sayının yüzdesini hızlıca hesapla.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc student" data-search="not ortalama okul ders">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🎓</div>
+
+<h3>Not Ortalaması</h3>
+
+<p>Notlarını gir, ortalamanı hemen öğren.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc" data-search="yaş doğum tarihi yaş hesaplama">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🎂</div>
+
+<h3>Yaş Hesaplama</h3>
+
+<p>Doğum tarihinden yaşını hesapla.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc" data-search="indirim fiyat para">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">💸</div>
+
+<h3>İndirim Hesaplama</h3>
+
+<p>İndirimli fiyatı kolayca bul.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc" data-search="kdv vergi fiyat">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🧾</div>
+
+<h3>KDV Hesaplama</h3>
+
+<p>KDV dahil ve hariç fiyatı hesapla.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc" data-search="ortalama sayı hesaplama">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">📊</div>
+
+<h3>Ortalama Hesaplama</h3>
+
+<p>Sayıların ortalamasını bul.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc" data-search="tarih gün fark">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">📅</div>
+
+<h3>Tarih Farkı</h3>
+
+<p>İki tarih arasındaki günleri hesapla.</p>
+
+</div>
+
+
+<div class="tool" data-cat="calc" data-search="birim metre kilometre">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">📐</div>
+
+<h3>Birim Dönüştürücü</h3>
+
+<p>Metre, santimetre ve kilometre dönüştür.</p>
+
+</div>
+
+
+<div class="tool" data-cat="student" data-search="pomodoro ders çalışma">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🍅</div>
+
+<h3>Pomodoro</h3>
+
+<p>Ders çalışma süreni düzenle.</p>
+
+</div>
+
+
+<div class="tool" data-cat="student" data-search="hedef hedef takip">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🎯</div>
+
+<h3>Hedef Takibi</h3>
+
+<p>Bugünkü hedefini kaydet.</p>
+
+</div>
+
+
+<div class="tool" data-cat="student time" data-search="sınav geri sayım">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">📚</div>
+
+<h3>Sınav Geri Sayımı</h3>
+
+<p>Sınavına kaç gün kaldığını öğren.</p>
+
+</div>
+
+
+<div class="tool" data-cat="time" data-search="kronometre süre">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">⏱️</div>
+
+<h3>Kronometre</h3>
+
+<p>Süreyi ölç.</p>
+
+</div>
+
+
+<div class="tool" data-cat="time" data-search="geri sayım sayaç">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">⏳</div>
+
+<h3>Geri Sayım</h3>
+
+<p>Belirlediğin süreyi geri say.</p>
+
+</div>
+
+
+<div class="tool" data-cat="text" data-search="kelime karakter metin">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">📝</div>
+
+<h3>Kelime Sayacı</h3>
+
+<p>Kelime ve karakter sayısını bul.</p>
+
+</div>
+
+
+<div class="tool" data-cat="text" data-search="büyük küçük harf metin">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🔠</div>
+
+<h3>Harf Dönüştürücü</h3>
+
+<p>Metni büyük veya küçük harfe çevir.</p>
+
+</div>
+
+
+<div class="tool" data-cat="text" data-search="ters yazı metin">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🔄</div>
+
+<h3>Ters Yazı</h3>
+
+<p>Metni tersine çevir.</p>
+
+</div>
+
+
+<div class="tool" data-cat="text" data-search="metin temizleyici boşluk">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🧹</div>
+
+<h3>Metin Temizleyici</h3>
+
+<p>Gereksiz boşlukları temizle.</p>
+
+</div>
+
+
+<div class="tool" data-cat="security" data-search="şifre parola güvenlik">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🔐</div>
+
+<h3>Şifre Oluşturucu</h3>
+
+<p>Güçlü rastgele şifre üret.</p>
+
+</div>
+
+
+<div class="tool" data-cat="security" data-search="rastgele sayı">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🔢</div>
+
+<h3>Rastgele Sayı</h3>
+
+<p>Belirlediğin aralıktan sayı seç.</p>
+
+</div>
+
+
+<div class="tool" data-cat="fun" data-search="rastgele seçim karar">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🎲</div>
+
+<h3>Rastgele Seçim</h3>
+
+<p>Karar veremiyorsan Nova senin için seçsin.</p>
+
+</div>
+
+
+<div class="tool" data-cat="fun" data-search="film sinema">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🎬</div>
+
+<h3>Film Seçici</h3>
+
+<p>Bugün ne izleyeceğine karar ver.</p>
+
+</div>
+
+
+<div class="tool" data-cat="fun" data-search="yemek ne yesem">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🍕</div>
+
+<h3>Ne Yesem?</h3>
+
+<p>Rastgele yemek önerisi al.</p>
+
+</div>
+
+
+<div class="tool" data-cat="fun" data-search="şans çarkı">
+
+<button class="favorite">☆</button>
+
+<div class="tool-icon">🎡</div>
+
+<h3>Şans Çarkı</h3>
+
+<p>Çarkı çevir ve şansını dene.</p>
+
+</div>
+
+
+</div>
+
+
+<div class="section-head">
+
+<h2>✨ TekTık'ta Bugün</h2>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+<div class="feature">
+
+<div class="feature-icon">💡</div>
+
+<h3>Günün Bilgisi</h3>
+
+<p id="dailyInfo">
+Bilgi yükleniyor...
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🎯</div>
+
+<h3>Bugünkü Hedef</h3>
+
+<p>
+Küçük hedefler belirle ve her gün biraz daha ilerle.
+</p>
+
+<button onclick="openGoal()">
+Hedef Belirle
+</button>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🎲</div>
+
+<h3>Şansını Dene</h3>
+
+<p>
+Bir araç seçemiyor musun? TekTık senin için seçsin.
+</p>
+
+<button onclick="randomTool()">
+Rastgele Araç
+</button>
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+<div class="footer-links">
+
+<a href="about.html">Hakkımızda</a>
+
+<a href="privacy.html">Gizlilik</a>
+
+<a href="terms.html">Kullanım Şartları</a>
+
+<a href="contact.html">İletişim</a>
+
+</div>
+
+© 2026 TekTık • Ücretsiz Online Araçlar
+
+</footer>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<div class="modal-header">
+
+<h2 id="modalTitle">Araç</h2>
+
+<button class="close" onclick="closeModal()">×</button>
+
+</div>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   TEMEL
+========================= */
+
+const modal=document.getElementById("modal");
+const tools=[...document.querySelectorAll(".tool")];
+
+function openModal(title,content){
+
+    document.getElementById("modalTitle").textContent=title;
+
+    document.getElementById("modalContent").innerHTML=content;
+
+    modal.classList.add("show");
+
+}
+
+function closeModal(){
+
+    modal.classList.remove("show");
+
+}
+
+modal.addEventListener("click",function(e){
+
+    if(e.target===modal){
+        closeModal();
+    }
+
+});
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+        closeModal();
+    }
+
+});
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+const darkBtn=document.getElementById("darkBtn");
+
+if(localStorage.getItem("tektik-dark")==="1"){
+
+    document.body.classList.add("dark");
+
+    darkBtn.textContent="☀️";
+
+}
+
+darkBtn.onclick=function(){
+
+    document.body.classList.toggle("dark");
+
+    const active=
+    document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "tektik-dark",
+        active?"1":"0"
+    );
+
+    darkBtn.textContent=
+    active?"☀️":"🌙";
+
+};
+
+
+/* =========================
+   SEARCH
+========================= */
+
+const search=document.getElementById("search");
+
+search.addEventListener("input",function(){
+
+    const value=this.value
+    .toLocaleLowerCase("tr-TR")
+    .trim();
+
+    tools.forEach(tool=>{
+
+        const text=
+        tool.dataset.search
+        .toLocaleLowerCase("tr-TR");
+
+        tool.classList.toggle(
+            "hidden",
+            !text.includes(value)
+        );
+
+    });
+
+    updateCount();
+
+});
+
+
+function updateCount(){
+
+    const visible=
+    tools.filter(
+        x=>!x.classList.contains("hidden")
+    ).length;
+
+    document.getElementById("count").textContent=
+    visible+" araç";
+
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+document.querySelectorAll(".category")
+.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        document.querySelectorAll(".category")
+        .forEach(x=>x.classList.remove("active"));
+
+        this.classList.add("active");
+
+        const cat=this.dataset.cat;
+
+        tools.forEach(tool=>{
+
+            if(cat==="all"){
+
+                tool.classList.remove("hidden");
+
+            }else{
+
+                const cats=
+                tool.dataset.cat.split(" ");
+
+                tool.classList.toggle(
+                    "hidden",
+                    !cats.includes(cat)
+                );
+
+            }
+
+        });
+
+        search.value="";
+
+        updateCount();
+
+    });
+
+});
+
+
+/* =========================
+   FAVORİLER
+========================= */
+
+const favorites=
+JSON.parse(
+    localStorage.getItem("tektik-favorites")||"[]"
+);
+
+document.querySelectorAll(".tool")
+.forEach((tool,index)=>{
+
+    const button=
+    tool.querySelector(".favorite");
+
+    if(favorites.includes(index)){
+
+        button.classList.add("active");
+
+        button.textContent="★";
+
+    }
+
+    button.addEventListener("click",function(e){
+
+        e.stopPropagation();
+
+        const position=
+        favorites.indexOf(index);
+
+        if(position===-1){
+
+            favorites.push(index);
+
+            this.classList.add("active");
+
+            this.textContent="★";
+
+        }else{
+
+            favorites.splice(position,1);
+
+            this.classList.remove("active");
+
+            this.textContent="☆";
+
+        }
+
+        localStorage.setItem(
+            "tektik-favorites",
+            JSON.stringify(favorites)
+        );
+
+    });
+
+});
+
+
+/* =========================
+   TOOL CLICK
+========================= */
+
+tools.forEach(tool=>{
+
+    tool.addEventListener("click",function(e){
+
+        if(e.target.classList.contains("favorite")){
+            return;
+        }
+
+        const title=
+        this.querySelector("h3").textContent;
+
+        openTool(title);
+
+    });
+
+});
+
+
+function openTool(title){
+
+    if(title==="Yüzde Hesaplama"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Sayı</label>
+            <input id="num" type="number" placeholder="500">
+        </div>
+
+        <div class="field">
+            <label>Yüzde</label>
+            <input id="percent" type="number" placeholder="20">
+        </div>
+
+        <button class="main-btn" onclick="calcPercent()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result">
+            Sonuç burada.
+        </div>
+
+        `);
+
+    }
+
+    else if(title==="Not Ortalaması"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Notları virgülle ayır</label>
+            <input id="grades" placeholder="80,90,75,100">
+        </div>
+
+        <button class="main-btn" onclick="calcGrades()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Yaş Hesaplama"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Doğum tarihi</label>
+            <input id="birth" type="date">
+        </div>
+
+        <button class="main-btn" onclick="calcAge()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="İndirim Hesaplama"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Ürün fiyatı</label>
+            <input id="price" type="number">
+        </div>
+
+        <div class="field">
+            <label>İndirim yüzdesi</label>
+            <input id="discount" type="number">
+        </div>
+
+        <button class="main-btn" onclick="calcDiscount()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="KDV Hesaplama"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Fiyat</label>
+            <input id="kdvPrice" type="number">
+        </div>
+
+        <div class="field">
+            <label>KDV %</label>
+            <input id="kdvRate" type="number" value="20">
+        </div>
+
+        <button class="main-btn" onclick="calcKdv()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Ortalama Hesaplama"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Sayıları virgülle ayır</label>
+            <input id="avgNumbers" placeholder="10,20,30">
+        </div>
+
+        <button class="main-btn" onclick="calcAverage()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Tarih Farkı"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Başlangıç</label>
+            <input id="date1" type="date">
+        </div>
+
+        <div class="field">
+            <label>Bitiş</label>
+            <input id="date2" type="date">
+        </div>
+
+        <button class="main-btn" onclick="calcDateDiff()">
+            HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Birim Dönüştürücü"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Metre</label>
+            <input id="meter" type="number">
+        </div>
+
+        <button class="main-btn" onclick="convertUnit()">
+            DÖNÜŞTÜR
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Kelime Sayacı"){
+
+        openModal(title,`
+
+        <div class="field">
+
+            <label>Metnin</label>
+
+            <textarea
+            id="wordText"
+            rows="7"
+            placeholder="Metnini buraya yaz..."
+            ></textarea>
+
+        </div>
+
+        <button class="main-btn" onclick="countWords()">
+            SAY
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Harf Dönüştürücü"){
+
+        openModal(title,`
+
+        <div class="field">
+
+            <textarea
+            id="letterText"
+            rows="7"
+            placeholder="Metnini yaz..."
+            ></textarea>
+
+        </div>
+
+        <div class="button-row">
+
+            <button onclick="toUpper()">
+                BÜYÜK
+            </button>
+
+            <button onclick="toLower()">
+                küçük
+            </button>
+
+        </div>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Ters Yazı"){
+
+        openModal(title,`
+
+        <div class="field">
+
+            <textarea
+            id="reverse"
+            rows="7"
+            placeholder="Metnini yaz..."
+            ></textarea>
+
+        </div>
+
+        <button class="main-btn" onclick="reverseText()">
+            TERS ÇEVİR
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Metin Temizleyici"){
+
+        openModal(title,`
+
+        <div class="field">
+
+            <textarea
+            id="clean"
+            rows="7"
+            placeholder="Metnini yapıştır..."
+            ></textarea>
+
+        </div>
+
+        <button class="main-btn" onclick="cleanText()">
+            TEMİZLE
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Şifre Oluşturucu"){
+
+        openModal(title,`
+
+        <div class="field">
+
+            <label>Şifre uzunluğu</label>
+
+            <input
+            id="passLength"
+            type="number"
+            min="6"
+            max="64"
+            value="16"
+            >
+
+        </div>
+
+        <button class="main-btn" onclick="generatePassword()">
+            🔐 ŞİFRE OLUŞTUR
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Rastgele Sayı"){
+
+        openModal(title,`
+
+        <div class="field">
+            <label>Minimum</label>
+            <input id="min" type="number" value="1">
+        </div>
+
+        <div class="field">
+            <label>Maksimum</label>
+            <input id="max" type="number" value="100">
+        </div>
+
+        <button class="main-btn" onclick="randomNumber()">
+            🔢 ÜRET
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Rastgele Seçim"){
+
+        openModal(title,`
+
+        <div class="field">
+
+            <label>Seçenekleri virgülle ayır</label>
+
+            <textarea
+            id="options"
+            rows="6"
+            placeholder="Pizza, Burger, Döner"
+            ></textarea>
+
+        </div>
+
+        <button class="main-btn" onclick="randomChoice()">
+            🎲 SEÇ
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Film Seçici"){
+
+        openModal(title,`
+
+        <p style="color:var(--muted);margin-bottom:15px">
+        Bugün ne izleyeceğine TekTık karar versin.
+        </p>
+
+        <button class="main-btn" onclick="randomFilm()">
+            🎬 FİLM ÖNER
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Ne Yesem?"){
+
+        openModal(title,`
+
+        <p style="color:var(--muted);margin-bottom:15px">
+        Bugün ne yiyeceğini seçemiyor musun?
+        </p>
+
+        <button class="main-btn" onclick="randomFood()">
+            🍕 YEMEK SEÇ
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+    else if(title==="Şans Çarkı"){
+
+        openModal(title,`
+
+        <div style="
+        width:230px;
+        height:230px;
+        border-radius:50%;
+        margin:10px auto 25px;
+        border:7px solid var(--text);
+        background:conic-gradient(
+        #ffd21c 0 60deg,
+        #ff7655 60deg 120deg,
+        #60a5fa 120deg 180deg,
+        #34d399 180deg 240deg,
+        #c084fc 240deg 300deg,
+        #fb7185 300deg 360deg
+        );
+        transition:transform 2s;
+        " id="wheel">
+        </div>
+
+        <button class="main-btn" onclick="spinWheel()">
+            🎡 ÇARKI ÇEVİR
+        </button>
+
+        <div class="result" id="result">
+        Hazır!
+        </div>
+
+        `);
+
+    }
+
+    else if(title==="Kronometre"){
+
+        openModal(title,`
+
+        <div class="timer" id="timer">
+        00:00
+        </div>
+
+        <div class="button-row">
+
+        <button onclick="startStopwatch()">
+        BAŞLAT
+        </button>
+
+        <button onclick="stopStopwatch()">
+        DURDUR
+        </button>
+
+        <button onclick="resetStopwatch()">
+        SIFIRLA
+        </button>
+
+        </div>
+
+        `);
+
+    }
+
+    else if(title==="Geri Sayım"){
+
+        openModal(title,`
+
+        <div class="field">
+        <label>Saniye</label>
+        <input id="seconds" type="number" value="60">
+        </div>
+
+        <button class="main-btn" onclick="startCountdown()">
+        BAŞLAT
+        </button>
+
+        <div class="timer" id="countdown">
+        01:00
+        </div>
+
+        `);
+
+    }
+
+    else if(title==="Pomodoro"){
+
+        openModal(title,`
+
+        <div class="timer" id="timer">
+        25:00
+        </div>
+
+        <div class="button-row">
+
+        <button onclick="startPomodoro()">
+        BAŞLAT
+        </button>
+
+        <button onclick="resetPomodoro()">
+        SIFIRLA
+        </button>
+
+        </div>
+
+        `);
+
+    }
+
+    else if(title==="Hedef Takibi"){
+
+        openGoal();
+
+    }
+
+    else if(title==="Sınav Geri Sayımı"){
+
+        openModal(title,`
+
+        <div class="field">
+        <label>Sınav tarihi</label>
+        <input id="exam" type="date">
+        </div>
+
+        <button class="main-btn" onclick="examCountdown()">
+        HESAPLA
+        </button>
+
+        <div class="result" id="result"></div>
+
+        `);
+
+    }
+
+}
+
+
+/* =========================
+   HESAPLAMA
+========================= */
+
+function calcPercent(){
+
+    const n=Number(document.getElementById("num").value);
+    const p=Number(document.getElementById("percent").value);
+
+    document.getElementById("result").textContent=
+    `${n} sayısının %${p}'si = ${(n*p/100).toFixed(2)}`;
+
+}
+
+
+function calcGrades(){
+
+    const values=
+    document.getElementById("grades")
+    .value
+    .split(",")
+    .map(Number)
+    .filter(x=>!isNaN(x));
+
+    if(!values.length)return;
+
+    const avg=
+    values.reduce((a,b)=>a+b,0)/values.length;
+
+    document.getElementById("result").textContent=
+    `📊 Ortalama: ${avg.toFixed(2)}`;
+
+}
+
+
+function calcAge(){
+
+    const birth=
+    new Date(document.getElementById("birth").value);
+
+    if(isNaN(birth))return;
+
+    const today=new Date();
+
+    let age=
+    today.getFullYear()-birth.getFullYear();
+
+    const month=
+    today.getMonth()-birth.getMonth();
+
+    if(
+        month<0 ||
+        (
+            month===0 &&
+            today.getDate()<birth.getDate()
+        )
+    ){
+        age--;
+    }
+
+    document.getElementById("result").textContent=
+    `🎂 Yaşın: ${age}`;
+
+}
+
+
+function calcDiscount(){
+
+    const price=
+    Number(document.getElementById("price").value);
+
+    const discount=
+    Number(document.getElementById("discount").value);
+
+    const amount=price*discount/100;
+
+    const final=price-amount;
+
+    document.getElementById("result").innerHTML=
+    `💸 İndirim: ${amount.toFixed(2)} TL<br>
+     💰 Son fiyat: ${final.toFixed(2)} TL`;
+
+}
+
+
+function calcKdv(){
+
+    const price=
+    Number(document.getElementById("kdvPrice").value);
+
+    const rate=
+    Number(document.getElementById("kdvRate").value);
+
+    const tax=price*rate/100;
+
+    document.getElementById("result").innerHTML=
+    `KDV: ${tax.toFixed(2)} TL<br>
+     KDV dahil: ${(price+tax).toFixed(2)} TL`;
+
+}
+
+
+function calcAverage(){
+
+    const values=
+    document.getElementById("avgNumbers")
+    .value
+    .split(",")
+    .map(Number)
+    .filter(x=>!isNaN(x));
+
+    if(!values.length)return;
+
+    const average=
+    values.reduce((a,b)=>a+b,0)/values.length;
+
+    document.getElementById("result").textContent=
+    `Ortalama: ${average.toFixed(2)}`;
+
+}
+
+
+function calcDateDiff(){
+
+    const a=new Date(
+        document.getElementById("date1").value
+    );
+
+    const b=new Date(
+        document.getElementById("date2").value
+    );
+
+    if(isNaN(a)||isNaN(b))return;
+
+    const days=Math.abs(
+        Math.round((b-a)/86400000)
+    );
+
+    document.getElementById("result").textContent=
+    `📅 İki tarih arasında ${days} gün var.`;
+
+}
+
+
+function convertUnit(){
+
+    const meter=
+    Number(document.getElementById("meter").value);
+
+    document.getElementById("result").innerHTML=
+    `${meter} metre<br>
+    ${meter*100} cm<br>
+    ${meter*1000} mm<br>
+    ${(meter/1000).toFixed(4)} km`;
+
+}
+
+
+/* =========================
+   METİN
+========================= */
+
+function countWords(){
+
+    const text=
+    document.getElementById("wordText").value.trim();
+
+    const words=
+    text?text.split(/\s+/).length:0;
+
+    document.getElementById("result").innerHTML=
+    `📝 ${words} kelime<br>
+     🔤 ${text.length} karakter`;
+
+}
+
+
+function toUpper(){
+
+    const text=
+    document.getElementById("letterText").value;
+
+    document.getElementById("result").textContent=
+    text.toLocaleUpperCase("tr-TR");
+
+}
+
+
+function toLower(){
+
+    const text=
+    document.getElementById("letterText").value;
+
+    document.getElementById("result").textContent=
+    text.toLocaleLowerCase("tr-TR");
+
+}
+
+
+function reverseText(){
+
+    const text=
+    document.getElementById("reverse").value;
+
+    document.getElementById("result").textContent=
+    [...text].reverse().join("");
+
+}
+
+
+function cleanText(){
+
+    const text=
+    document.getElementById("clean").value;
+
+    document.getElementById("result").textContent=
+    text.replace(/\s+/g," ").trim();
+
+}
+
+
+/* =========================
+   ŞİFRE
+========================= */
+
+function generatePassword(){
+
+    const length=
+    Math.min(
+        64,
+        Math.max(
+            6,
+            Number(
+                document.getElementById("passLength").value
+            )
+        )
+    );
+
+    const chars=
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
+    "abcdefghijklmnopqrstuvwxyz"+
+    "0123456789!@#$%^&*()_+-=";
+
+    let password="";
+
+    for(let i=0;i<length;i++){
+
+        password+=
+        chars[
+            Math.floor(
+                Math.random()*chars.length
+            )
+        ];
+
+    }
+
+    document.getElementById("result").textContent=
+    password;
+
+}
+
+
+/* =========================
+   RASTGELE
+========================= */
+
+function randomNumber(){
+
+    const min=
+    Number(document.getElementById("min").value);
+
+    const max=
+    Number(document.getElementById("max").value);
+
+    if(max<min)return;
+
+    const result=
+    Math.floor(
+        Math.random()*(max-min+1)
+    )+min;
+
+    document.getElementById("result").textContent=
+    result;
+
+}
+
+
+function randomChoice(){
+
+    const options=
+    document.getElementById("options")
+    .value
+    .split(",")
+    .map(x=>x.trim())
+    .filter(Boolean);
+
+    if(!options.length)return;
+
+    const result=
+    options[
+        Math.floor(Math.random()*options.length)
+    ];
+
+    document.getElementById("result").textContent=
+    `🎯 ${result}`;
+
+}
+
+
+function randomFilm(){
+
+    const films=[
+        "Interstellar",
+        "Inception",
+        "The Dark Knight",
+        "Forrest Gump",
+        "The Matrix",
+        "Gladyatör",
+        "Avengers: Endgame",
+        "Spider-Man: No Way Home"
+    ];
+
+    document.getElementById("result").textContent=
+    films[Math.floor(Math.random()*films.length)];
+
+}
+
+
+function randomFood(){
+
+    const foods=[
+        "🍕 Pizza",
+        "🍔 Hamburger",
+        "🌯 Döner",
+        "🍝 Makarna",
+        "🥪 Tost",
+        "🍗 Tavuk",
+        "🌮 Taco",
+        "🥗 Salata"
+    ];
+
+    document.getElementById("result").textContent=
+    foods[Math.floor(Math.random()*foods.length)];
+
+}
+
+
+function spinWheel(){
+
+    const wheel=document.getElementById("wheel");
+
+    const rotation=
+    720+Math.floor(Math.random()*1440);
+
+    wheel.style.transform=
+    `rotate(${rotation}deg)`;
+
+    setTimeout(()=>{
+
+        document.getElementById("result").textContent=
+        "🎉 Şanslı sonuç geldi!";
+
+    },2000);
+
+}
+
+
+/* =========================
+   KRONOMETRE
+========================= */
+
+let stopwatchSeconds=0;
+let stopwatchInterval=null;
+
+function startStopwatch(){
+
+    if(stopwatchInterval)return;
+
+    stopwatchInterval=setInterval(()=>{
+
+        stopwatchSeconds++;
+
+        const min=
+        String(
+            Math.floor(stopwatchSeconds/60)
+        ).padStart(2,"0");
+
+        const sec=
+        String(
+            stopwatchSeconds%60
+        ).padStart(2,"0");
+
+        const timer=
+        document.getElementById("timer");
+
+        if(timer){
+            timer.textContent=
+            `${min}:${sec}`;
+        }
+
+    },1000);
+
+}
+
+
+function stopStopwatch(){
+
+    clearInterval(stopwatchInterval);
+
+    stopwatchInterval=null;
+
+}
+
+
+function resetStopwatch(){
+
+    stopStopwatch();
+
+    stopwatchSeconds=0;
+
+    const timer=
+    document.getElementById("timer");
+
+    if(timer){
+        timer.textContent="00:00";
+    }
+
+}
+
+
+/* =========================
+   POMODORO
+========================= */
+
+let pomodoroSeconds=1500;
+let pomodoroInterval=null;
+
+function startPomodoro(){
+
+    if(pomodoroInterval)return;
+
+    pomodoroInterval=setInterval(()=>{
+
+        if(pomodoroSeconds<=0){
+
+            clearInterval(pomodoroInterval);
+
+            pomodoroInterval=null;
+
+            alert("🍅 Pomodoro tamamlandı!");
+
+            return;
+
+        }
+
+        pomodoroSeconds--;
+
+        const min=
+        String(
+            Math.floor(pomodoroSeconds/60)
+        ).padStart(2,"0");
+
+        const sec=
+        String(
+            pomodoroSeconds%60
+        ).padStart(2,"0");
+
+        const timer=
+        document.getElementById("timer");
+
+        if(timer){
+            timer.textContent=
+            `${min}:${sec}`;
+        }
+
+    },1000);
+
+}
+
+
+function resetPomodoro(){
+
+    clearInterval(pomodoroInterval);
+
+    pomodoroInterval=null;
+
+    pomodoroSeconds=1500;
+
+    const timer=
+    document.getElementById("timer");
+
+    if(timer){
+        timer.textContent="25:00";
+    }
+
+}
+
+
+/* =========================
+   GERİ SAYIM
+========================= */
+
+let countdownInterval=null;
+
+function startCountdown(){
+
+    clearInterval(countdownInterval);
+
+    let seconds=
+    Number(
+        document.getElementById("seconds").value
+    );
+
+    const element=
+    document.getElementById("countdown");
+
+    function update(){
+
+        const min=
+        String(Math.floor(seconds/60))
+        .padStart(2,"0");
+
+        const sec=
+        String(seconds%60)
+        .padStart(2,"0");
+
+        element.textContent=
+        `${min}:${sec}`;
+
+        if(seconds<=0){
+
+            clearInterval(countdownInterval);
+
+            element.textContent="🎉 BİTTİ!";
+
+            return;
+
+        }
+
+        seconds--;
+
+    }
+
+    update();
+
+    countdownInterval=
+    setInterval(update,1000);
+
+}
+
+
+/* =========================
+   HEDEF
+========================= */
+
+function openGoal(){
+
+    const saved=
+    localStorage.getItem("tektik-goal")||"";
+
+    openModal("🎯 Hedef Takibi",`
+
+    <div class="field">
+
+    <label>Bugünkü hedefin</label>
+
+    <input
+    id="goal"
+    value="${saved.replace(/"/g,"&quot;")}"
+    placeholder="Örn: 30 dakika kitap oku"
+    >
+
+    </div>
+
+    <button class="main-btn" onclick="saveGoal()">
+    HEDEFİ KAYDET
+    </button>
+
+    <div class="result" id="result">
+    ${saved?"Mevcut hedef: "+saved:"Henüz hedef belirlemedin."}
+    </div>
+
+    `);
+
+}
+
+
+function saveGoal(){
+
+    const goal=
+    document.getElementById("goal").value.trim();
+
+    if(!goal)return;
+
+    localStorage.setItem(
+        "tektik-goal",
+        goal
+    );
+
+    document.getElementById("result").textContent=
+    "🎯 Hedef kaydedildi: "+goal;
+
+}
+
+
+/* =========================
+   SINAV
+========================= */
+
+function examCountdown(){
+
+    const exam=
+    new Date(
+        document.getElementById("exam").value
+    );
+
+    if(isNaN(exam))return;
+
+    const now=new Date();
+
+    const days=
+    Math.ceil(
+        (exam-now)/86400000
+    );
+
+    document.getElementById("result").textContent=
+    days>=0
+    ?`📚 Sınava ${days} gün kaldı!`
+    :"Bu sınav tarihi geçmiş.";
+
+}
+
+
+/* =========================
+   GÜNÜN BİLGİSİ
+========================= */
+
+const facts=[
+
+"Su, Dünya yüzeyinin yaklaşık %71'ini kaplar.",
+
+"Arılar dans ederek yiyeceklerin konumunu birbirlerine anlatabilir.",
+
+"İnsan beyninde milyarlarca sinir hücresi bulunur.",
+
+"Bir yılda 365 gün vardır; artık yıllarda 366 gün bulunur.",
+
+"Jüpiter, Güneş Sistemi'nin en büyük gezegenidir."
+
+];
+
+const today=new Date();
+
+document.getElementById("dailyInfo").textContent=
+facts[
+    today.getDate()%facts.length
+];
+
+
+/* =========================
+   RASTGELE ARAÇ
+========================= */
+
+function randomTool(){
+
+    const visible=
+    tools.filter(
+        x=>!x.classList.contains("hidden")
+    );
+
+    if(!visible.length)return;
+
+    const selected=
+    visible[
+        Math.floor(
+            Math.random()*visible.length
+        )
+    ];
+
+    selected.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+    selected.style.borderColor=
+    "var(--primary)";
+
+    setTimeout(()=>{
+
+        selected.style.borderColor="";
+
+    },1800);
+
+}
+
+document.getElementById("randomBtn")
+.addEventListener("click",randomTool);
+
+
+/* BAŞLANGIÇ */
+
+updateCount();
+
+</script>
+
+</body>
+</html>
