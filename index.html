@@ -517,6 +517,35 @@ font-size:23px;
 }
 </style>
 </head>
+<!-- ÇEREZ BİLDİRİMİ -->
+
+<div id="cookie-banner" class="cookie-banner">
+
+```
+<div class="cookie-content">
+    <div class="cookie-icon">🍪</div>
+
+    <div class="cookie-text">
+        <strong>Çerezleri Kullanıyoruz</strong>
+        <p>
+            NovaSpor, daha iyi bir kullanıcı deneyimi sunmak,
+            site performansını geliştirmek ve gerekli hizmetleri
+            sağlamak için çerezler kullanabilir.
+            <a href="cookie-policy.html">Çerez Politikası</a>
+        </p>
+    </div>
+
+    <div class="cookie-buttons">
+        <button id="cookie-accept">Kabul Et</button>
+    </div>
+</div>
+```
+
+</div>
+
+<style>     .cookie-banner {         position: fixed;         left: 20px;         right: 20px;         bottom: 20px;         z-index: 99999;         background: #ffffff;         border: 1px solid #e5e5e5;         border-radius: 16px;         box-shadow: 0 10px 40px rgba(0,0,0,.20);         padding: 18px 22px;     }      .cookie-content {         max-width: 1200px;         margin: auto;         display: flex;         align-items: center;         gap: 18px;     }      .cookie-icon {         font-size: 35px;     }      .cookie-text {         flex: 1;     }      .cookie-text strong {         display: block;         font-size: 18px;         margin-bottom: 4px;         color: #111;     }      .cookie-text p {         margin: 0;         font-size: 14px;         line-height: 1.5;         color: #555;     }      .cookie-text a {         color: #111;         font-weight: 700;         text-decoration: underline;     }      .cookie-buttons button {         border: none;         background: #ffd400;         color: #111;         font-weight: 700;         padding: 12px 22px;         border-radius: 10px;         cursor: pointer;         font-size: 14px;     }      .cookie-buttons button:hover {         opacity: .85;     }      @media (max-width: 700px) {          .cookie-banner {             left: 10px;             right: 10px;             bottom: 10px;             padding: 16px;         }          .cookie-content {             align-items: flex-start;             flex-wrap: wrap;         }          .cookie-icon {             font-size: 28px;         }          .cookie-text {             width: calc(100% - 50px);         }          .cookie-buttons {             width: 100%;         }          .cookie-buttons button {             width: 100%;         }     } </style>
+
+<script> document.addEventListener("DOMContentLoaded", function () {      const banner = document.getElementById("cookie-banner");     const acceptButton = document.getElementById("cookie-accept");      if (localStorage.getItem("novaspor_cookie_accepted") === "true") {         banner.style.display = "none";     }      acceptButton.addEventListener("click", function () {         localStorage.setItem("novaspor_cookie_accepted", "true");         banner.style.display = "none";     });  }); </script>
 
 <body>
 
